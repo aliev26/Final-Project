@@ -12,7 +12,8 @@
 <body>
 <div class="container">
 <div class="weather-app-wrapper">
-<div class="weather-app">
+ <div class="weather-app">
+  <div class="spacing">
  <h1>
      San Diego, US
  </h1>
@@ -24,14 +25,22 @@
          Partly cloudy
      </li>  
  </ul>
+</div>
  <div class="row">
  <div class="col-6">
+ <div class="clearfix weather-elements">
  <img
  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
  alt="partly_cloudy"
+ class="float-left"
  />
- 24°C | °F
- </div>
+    <div class="float-left">
+<strong>24</strong><span class="units">°C | <a href="#">°F</a></span>
+
+    </div>
+  </div>
+</div>
+
  <div class="col-6">
  <ul>
      <li>

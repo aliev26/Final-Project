@@ -8,6 +8,9 @@ h1{
     line-height:28px;
     margin-bottom: 0;
 }
+.spacing{
+    margin-bottom: 20px;
+}
 ul{
     margin: 0;
     padding: 0;
@@ -30,4 +33,20 @@ li{
     padding: 20px;
     border:1px solid #dfe1e5;
     border-radius: 5px;
+}
+.weather-elements img{
+    margin-right: 10px;
+    height: 64px;
+    width: 64px;
+}
+.weather-elements strong{
+    color:rgb(33,33,33);
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 400;
+}
+.weather-elements .units{
+    position: relative;
+    font-size: 16px;
+    top:-34px;
 }
