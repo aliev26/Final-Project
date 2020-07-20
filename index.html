@@ -24,19 +24,23 @@
     <div class="weather-app">
       <div class="row">
     <div class="col-6">
-    <h1 class="city" id=headline-city>San Diego, US</h1>
-    <p class="time-date"></p>
+
+    <h1 class="city" id=headline-city>San Diego, US</h1> 
+    <h2 class= "description" id="description">Clear Sky</h2>      
+    <p>Last updated:<span id="time-date"></span></p>
     <h1 class="temperature">
     <div class="float-left">
+    <img
+    src="http://openweathermap.org/img/wn/01d@2x.png"
+    alt="weather icon"
+    id="icon"
+    >
     <strong id="temperature-numbers">23</strong>
     <small>
           <a href="#" id="celsius">°C  | </a>
           <a href="#" id="fahrenheit">°F</a>
     </small>
   </div>
-        <button id="current-location">
-        <i class="fas fa-map-marker-alt"></i>
-        </button>
     </h1>
   
     </div>
