@@ -49,8 +49,6 @@ function formateDate(date) {
         maxTemp.innerHTML = Math.round(response.data.main.temp_max);
         let minTemp = document.querySelector("#min");
         minTemp.innerHTML = Math.round(response.data.main.temp_min);
-        let feelslike = document.querySelector("#sensation");
-        feelslike.innerHTML = `${Math.round(response.data.main.feels_like)}`;
         let humidity = document.querySelector("#humidity");
         humidity.innerHTML = `${response.data.main.humidity}`;
         let windSpeed = document.querySelector("#wind");
@@ -94,8 +92,6 @@ function formateDate(date) {
     maxTemp.innerHTML = Math.round(response.data.main.temp_max);
     let minTemp = document.querySelector("#min");
     minTemp.innerHTML = Math.round(response.data.main.temp_min);
-    let feelslike = document.querySelector("#sensation");
-    feelslike.innerHTML = `${Math.round(response.data.main.feels_like)}`;
     let humidity = document.querySelector("#humidity");
     humidity.innerHTML = `${response.data.main.humidity}`;
     let windSpeed = document.querySelector("#wind");
