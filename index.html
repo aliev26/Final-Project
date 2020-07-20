@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0590e684f6.js"crossorigin="anonymous"></script>
+    <title>
+      Weather
+    </title>
+  </head>
+  
+  <body>
+    <div class="container">
+    <div cass="weather-app-wrapper">
+    <div class="weather-app">
+      <div class="row">
+    <div class="col-6">
+    <h1 class="city" id=headline-city>San Diego, US</h1>
+    <h1 class="temperature">
+    <strong id="temperature-numbers">23</strong>
+    <small>
+          <a href="#" id="celsius">°C</a> | 
+          <a href="#" id="fahrenheit">°F</a>
+    </small>
 
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
- <link rel="stylesheet" href="src/style.css"  />
-
- <title>Weather App</title>
-</head>
-<body>
-<div class="container">
-<div class="weather-app-wrapper">
- <div class="weather-app">
-  <div class="spacing">
- <h1>
-     San Diego, US
- </h1>
- <ul>
-     <li>
-         Tuesday 12:00 PM
-     </li>
-     <li>
-         Partly cloudy
-     </li>  
- </ul>
-</div>
- <div class="row">
- <div class="col-6">
- <div class="clearfix weather-elements">
- <img
- src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
- alt="partly_cloudy"
- class="float-left"
- />
-    <div class="float-left">
-<strong>24</strong><span class="units">°C | <a href="#">°F</a></span>
-
+        <button id="current-location">
+        <i class="fas fa-map-marker-alt"></i>
+        </button>
+      <br>
+      <p class="time-date"></p>
+    </h1>
     </div>
+  <div class="col-6" id="col-details">
+    <ul>
+      <li>Max Temp: <strong id="max">27 </strong>°C</li>
+      <li>Min Temp: <strong id="min">21</strong>°C</li>
+      <li>Feels like: <strong id="sensation">22 </strong>°C</li>
+      <li>Humidity: <strong id="humidity">27</strong>%</li>
+      <li>Wind: <strong id="wind">4</strong> </strong>km/h</li>
+    </ul>
   </div>
-</div>
-
- <div class="col-6">
- <ul>
-     <li>
-         Precipitation:2%
-     </li>
-     <li>
-         Humidity:63%
-     </li>
-     <li>
-         Wind:16 km/h
-     </li>
- </ul>
-    
- </div>
-  </div>
+      <div class="container">
+          <form class="search-form" id="search-city">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  autofocus="on"
+                  autocomplete="off"
+                  id="city-input"
+                  class="form-control shadow-sm"/>
+              </div>
+              <div class="col-3">
+                <input
+                  id="search-location"
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-primary shadow-sm"
+                />
+              </div>
+      <small>
+        <a href="https://github.com/aliev26/Final-Project" target="blank">Open-source coded</a>
+        by Adriana Lievens</small>
     </div>
- <small>
-     <a href="https://github.com/aliev26/Final-Project" target="blank">Open-source coded</a>
-        by Adriana Lievens
- </small>
-</div> 
-</div> 
-<script src="src/app.js"></script>
-</body>
+  </div> 
+</div>
+    <script src="src/app.js"></script>
+  </body>
+  </div>
 </html>
+
