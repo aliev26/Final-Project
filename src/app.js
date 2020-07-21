@@ -1,30 +1,30 @@
 function formateDate(date) {
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
+    let hours = date.getHours();
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    let dayIndex = date.getDay();
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+    let day = days[dayIndex];
+    return `${day} ${hours}:${minutes}`;
   }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  let dayIndex = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ];
-  let day = days[dayIndex];
-  return `${day} ${hours}:${minutes}`;
-}
-
-let h3 = document.querySelector(".time-date");
-let currentTime = new Date();
-
-h3.innerHTML = formateDate(currentTime);
+  
+  let h3 = document.querySelector(".time-date");
+  let currentTime = new Date();
+  
+  h3.innerHTML = formateDate(currentTime);
 
 function citySearch(event) {
   event.preventDefault();
@@ -92,6 +92,8 @@ tempCel.addEventListener("click", backTemp);
 let apiKey = "f1c77eff562f2c8461f69c753ac36d7d";
 
 function showCity(response) {
+ let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature-numbers");
   temperatureElement.innerHTML = `${temperature}`;
@@ -118,10 +120,29 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showCity);
 }
-
-function getCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-let button = document.querySelector("button");
-button.addEventListener("click", getCurrentPosition);
+function dispayForecast(response) {
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = null;
+    let forecast = null;
+  
+    for (let index = 0; index < 5; index++) {
+      forecast = response.data.list[index];
+      forecastElement.innerHTML += `
+          <div class="col-2">
+              <h2>
+              ${formatHours(forecast.dt * 1000)}
+              </h2>
+              <img 
+              src="https://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png" alt="" />
+              <div class="weather-forecast-temperature">
+                <strong>
+                ${Math.round(forecast.main.temp_max)}º
+                </strong> 
+                ${Math.round(forecast.main.temp_min)}º
+              </div>
+            </div>`;
+    }
+  }
+  
